@@ -113,7 +113,6 @@ def copy_static():
 
 
 if __name__ == "__main__":
-    print("fucking shit")
     if not checkargs():
         exit(1)
     posts = load_input()
