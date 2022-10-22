@@ -24,11 +24,11 @@ def checkargs():
         print("Python Static Site Generator by Kenneth Soares")
         print("usage: ./main.py <IN_DIR> <OUT_DIR> (<TEMP_DIR>)")
         return False
-    elif len(sys.argv) < 4:
+    elif len(sys.argv) < 3:
         print("missing arguments!")
         print("for help: ./main.py")
         return False
-    elif len(sys.argv) == 3:
+    elif len(sys.argv) == 4:
         INPUT_FOLDER = sys.argv[1]
         DIST_FOLDER = sys.argv[2]
         TEMPLATE_FOLDER = sys.argv[3]
