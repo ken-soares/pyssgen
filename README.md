@@ -37,5 +37,4 @@ If you don't know how to write templates using jinja,
 you can copy the premade [templates](https://github.com/ken-soares/pyssgen/tree/main/pyssgen/templates) folder.
 
 ## css
-For the program to work you also need the `static/` directory in which you can include the `styles.css` file (not required to work).
-Again, you can just copy the provided folders if you want.
+`static/` folder will be created automatically in parent directory if it doesn't already exist, you can place your `styles.css` inside `dist/static`. Otherwise, the pages won't have styling. If you are not sure how to work with css, you can copy the css from this repository.
