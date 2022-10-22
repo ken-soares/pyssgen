@@ -24,7 +24,7 @@ def checkargs():
         print("Python Static Site Generator by Kenneth Soares")
         print("usage: ./main.py <IN_DIR> <OUT_DIR> (<TEMP_DIR>)")
         return False
-    elif len(sys.argv) < 3:
+    elif len(sys.argv) < 4:
         print("missing arguments!")
         print("for help: ./main.py")
         return False
@@ -35,6 +35,7 @@ def checkargs():
     else:
         INPUT_FOLDER = sys.argv[1]
         DIST_FOLDER = sys.argv[2]
+        print("no template folder specified, defaulting to ./templates")
         TEMPLATE_FOLDER = "./templates"
     return True
 
