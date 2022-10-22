@@ -1,0 +1,25 @@
+body{
+    font-family: 'Fira Sans Condensed', sans-serif;
+    background-color: #eee;
+    color:#222;
+}
+
+.hero-text{
+    font-size:60px;
+}
+
+.posts > li{
+    list-style:none;
+}
+ .posts > li > a{
+    color: #222;
+    text-decoration:none;
+ }
+
+.tag-post{
+   background-color: green;
+   border-radius:20px;
+   padding:4px;
+   font-size:12px;
+   color:#eee;
+}

@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+{%block content%}
+<h1 class="hero-text">Kenneth's Blog</h1>
+<h2>Recent Posts</h2>
+<ul class="posts">
+    {% for post in data %}
+    {% if post.type == 'post' %}
+    <li>
+        <span class="tag tag-post">Post</span>
+        <a href="post/{{post.slug}}.html">{{post.title}}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{%endblock%}

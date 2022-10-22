@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenneth Soares</title>
+    <link rel="stylesheet" href="/blog/static/styles.css">
+</head>
+<body>
+    <div class="main">
+        
+
+<div>
+    <a href="/blog/index.html">< back</a>
+    <h1>Diviser pour régner (méthode algorithmique)</h1>
+    <h3>author: Kenneth Soares (cours de T. Tournier)</h3>
+    <h3>published on: 24-09-2022</h3>
+    <p>
+        <h2>1. Explication du paradigme "Diviser pour régner"</h2>
+<p>Le paradigme diviser pour régner est une méthode algorithmique basée
+sur le principe suivant: on prend un problème complexe que l'on divise
+en une multitude de petits problèmes. Une fois les petits problèmes résolus,
+on les recombine afin d'obtenir la solution au problème de départ.</p>
+<h3>TL;DR</h3>
+<p>On a donc 3 étapes:
+* Diviser: Diviser le problème en un certain nombre de sous-problèmes.
+* Régner: Résoudre les sous-problèmes.
+* Combiner: On combine les solutions des sous-problèmes afin d'obtenir la
+  solution au problème de base.</p>
+<h2>Application concrète</h2>
+<p>On va donc refaire en Python l'algorithme de tri fusion afin de mieux
+comprendre cette notion.</p>
+<pre><code class="language-python">
+# on se sert de cette fonction pour fusionner les deux listes
+def fusion(l1,l2):
+    lvide = []
+    while l1 != [] and l2 != []:
+        if l1[0] &lt;= l2[0]:
+            lvide.append(l1[0])
+            l1 = l1[1:]
+        else:
+            lvide.append(l2[0])
+            l2 = l2[1:]
+
+        lvide = lvide + l1 + l2
+        return lvide
+
+# on décompose récursivement notre liste de départ en plusieurs listes
+# que l'on recompose triées avec fusion()
+
+def tri_fusion(t):
+    if len(t) &lt;= 1:
+        return t
+    else:
+        l1 = tri_fusion(t[:len(t) // 2])
+        l2 = tri_fusion(t[len(t) // 2:])
+    return fusion(l1,l2)
+</code></pre>
+<p>Cet algorithme utilise donc la notion de <a href="https://www.youtube.com/watch?v=pg5YeSsOLZU">récursivité</a>
+pour trier un tableau avec une complexité inférieure a celle du tri par selection,
+par exemple.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>complexité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tri fusion</td>
+<td>O(nlog₂n)</td>
+</tr>
+<tr>
+<td>tri par selection</td>
+<td>O(n²)</td>
+</tr>
+</tbody>
+</table>
+    </p>
+</div>
+<script src="https://giscus.app/client.js"
+        data-repo="ken-soares/ken-soares.github.io"
+        data-repo-id="R_kgDOHGtsOw"
+        data-category="General"
+        data-category-id="DIC_kwDOHGtsO84CRnNS"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <a href="/blog/index.html">< back</a>
+    <h1>{{ data.metadata.title }}</h1>
+    <h3>author: {{ data.metadata.author }}</h3>
+    <h3>published on: {{ data.metadata.date }}</h3>
+    <p>
+        {{ data.content }}
+    </p>
+</div>
+<script src="https://giscus.app/client.js"
+        data-repo="ken-soares/ken-soares.github.io"
+        data-repo-id="R_kgDOHGtsOw"
+        data-category="General"
+        data-category-id="DIC_kwDOHGtsO84CRnNS"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+{% endblock %}
