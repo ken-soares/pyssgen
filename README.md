@@ -29,9 +29,9 @@ websites.
 ## templates
 
 In order for pyssgen to work you need to provide a `templates/` directory containing:
-* `base.html` the shared headers between all pages,
-* `home.html` for the main page of the website,
-* `post.html` for "posts" or any other pages
+* [base.html](https://github.com/ken-soares/pyssgen/blob/main/pyssgen/templates/base.html) the shared headers between all pages,
+* [home.html](https://github.com/ken-soares/pyssgen/blob/main/pyssgen/templates/home.html) for the main page of the website,
+* [post.html](https://github.com/ken-soares/pyssgen/blob/main/pyssgen/templates/post.html) for "posts" or any other pages
 
 If you don't know how to write templates using jinja,
 you can copy the premade [templates](https://github.com/ken-soares/pyssgen/tree/main/pyssgen/templates) folder.
