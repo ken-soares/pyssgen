@@ -8,6 +8,10 @@ body{
     font-size:60px;
 }
 
+pre{
+    overflow-x:auto;
+}
+
 .posts > li{
     list-style:none;
 }
