@@ -27,7 +27,8 @@ chmod +x pyssgen/pyssgen/pyssgen.py
 ## Usage
 
 ### if installed with pip
-```
+
+```python
 >>> python3 -m pyssgen <input-dir> <output-dir> (optional: <templates-dir>)
 ```
 ### if installed with git
