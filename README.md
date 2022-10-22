@@ -52,6 +52,6 @@ In order for pyssgen to work you need to provide a `templates/` directory contai
 If you don't know how to write templates using jinja,
 you can copy the premade [templates](https://github.com/ken-soares/pyssgen/tree/main/pyssgen/templates) folder.
 
-### css
-
-Simply replace the existing css file in `dist/static/styles.css` with your own.
+## css
+For the program to work you also need the `static/` directory in which you can include the `styles.css` file. Again, you can just
+copy the provided folders if you want.
