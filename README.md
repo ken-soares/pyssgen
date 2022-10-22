@@ -18,6 +18,7 @@ websites.
 ```bash
 git clone https://github.com/ken-soares/pyssgen.git
 pip install -r requirements.txt
+chmod +x pyssgen/pyssgen/pyssgen.py
 ```
 
 
@@ -30,11 +31,18 @@ pip install -r requirements.txt
 
 ```bash
 cd path/to/pyssgen
-src/pyssgen/main.py <input-dir> <output-dir> (optional: <templates-dir>)
+./pyssgen.py <input-dir> <output-dir> (optional: <templates-dir>)
 ```
 
 ## Customisation
 
 ### templates
 
-TODO:
+You can create your own templates folder following theses naming conventions:
+* `base.html` is common part between all pages.
+* `home.html` is the name used for the main page template.
+* `post.html` is the name used for posts template.
+
+### css
+
+Simply replace the existing css file in `dist/static/styles.css` with your own.
