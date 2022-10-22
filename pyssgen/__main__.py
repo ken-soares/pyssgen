@@ -28,14 +28,14 @@ def checkargs():
         print("missing arguments!")
         print("for help: ./main.py")
         return False
-    elif len(sys.argv) == 4:
+    elif len(sys.argv) == 3:
         INPUT_FOLDER = sys.argv[1]
         DIST_FOLDER = sys.argv[2]
         TEMPLATE_FOLDER = sys.argv[3]
     else:
         INPUT_FOLDER = sys.argv[1]
         DIST_FOLDER = sys.argv[2]
-        print("no template folder specified, defaulting to ./templates")
+        print("no templates/ folder specified, defaulting to ./templates")
         TEMPLATE_FOLDER = "./templates"
     return True
 
@@ -82,6 +82,7 @@ def render_templates(posts_data,env):
     os.makedirs(DIST_FOLDER, exist_ok=True)
     with open(f"{DIST_FOLDER}/index.html", "w") as f:
         f.write(renderer_template)
+        f.close()
     return 0
 
 def render_posts(posts_data,env):
@@ -94,9 +95,10 @@ def render_posts(posts_data,env):
         type = data["metadata"]["type"]
         template = env.get_template(f"{type}.html")
         rendered_template = template.render(data=data)
-        os.makedirs(f"dist/{type}", exist_ok=True)
-        with open(f"dist/{type}/{data['metadata']['slug']}.html", 'w') as f:
+        os.makedirs(f"{DIST_FOLDER}/{type}", exist_ok=True)
+        with open(f"{DIST_FOLDER}/{type}/{data['metadata']['slug']}.html", 'w') as f:
             f.write(rendered_template)
+            f.close()
     return 0
 
 def copy_static():
@@ -105,11 +107,13 @@ def copy_static():
         params: none
         return: 0 if success
     '''
-    os.makedirs("dist/static", exist_ok=True)
+    os.makedirs(f"{DIST_FOLDER}/static", exist_ok=True)
     for file in os.listdir("static"):
         with open(f"static/{file}", "r") as f:
-            with open(f"dist/static/{file}", "w") as f2:
+            with open(f"{DIST_FOLDER}/static/{file}", "w") as f2:
                 f2.write(f.read())
+                f2.close()
+            f.close()
     return 0
 
 
