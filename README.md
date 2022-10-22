@@ -17,15 +17,6 @@ websites.
 >>> pip install --user pyssgen
 ```
 
-### via git
-
-```bash
-git clone https://github.com/ken-soares/pyssgen.git
-pip install -r requirements.txt
-mv pyssgen/pyssgen/__main__.py pyssgen/pyssgen/pyssgen.py
-chmod +x pyssgen/pyssgen/pyssgen.py
-```
-
 
 ## Usage
 
@@ -34,13 +25,6 @@ chmod +x pyssgen/pyssgen/pyssgen.py
 ```python
 >>> python3 -m pyssgen <input-dir> <output-dir> <templates-dir>
 ```
-### if installed with git
-
-```bash
-cd path/to/pyssgen
-./pyssgen.py <input-dir> <output-dir> <templates-dir>
-```
-
 
 ## templates
 
@@ -53,5 +37,5 @@ If you don't know how to write templates using jinja,
 you can copy the premade [templates](https://github.com/ken-soares/pyssgen/tree/main/pyssgen/templates) folder.
 
 ## css
-For the program to work you also need the `static/` directory in which you can include the `styles.css` file. Again, you can just
-copy the provided folders if you want.
+For the program to work you also need the `static/` directory in which you can include the `styles.css` file (not required to work).
+Again, you can just copy the provided folders if you want.
