@@ -32,23 +32,25 @@ chmod +x pyssgen/pyssgen/pyssgen.py
 ### if installed with pip
 
 ```python
->>> python3 -m pyssgen <input-dir> <output-dir> (optional: <templates-dir>)
+>>> python3 -m pyssgen <input-dir> <output-dir> <templates-dir>
 ```
 ### if installed with git
 
 ```bash
 cd path/to/pyssgen
-./pyssgen.py <input-dir> <output-dir> (optional: <templates-dir>)
+./pyssgen.py <input-dir> <output-dir> <templates-dir>
 ```
 
-## Customisation
 
-### templates
+## templates
 
-You can create your own templates folder following theses naming conventions:
-* `base.html` is common part between all pages.
-* `home.html` is the name used for the main page template.
-* `post.html` is the name used for posts template.
+In order for pyssgen to work you need to provide a `templates/` directory containing:
+* `base.html` the shared headers between all pages,
+* `home.html` for the main page of the website,
+* `post.html` for "posts" or any other pages
+
+If you don't know how to write templates using jinja,
+you can copy the premade [templates](https://github.com/ken-soares/pyssgen/tree/main/pyssgen/templates) folder.
 
 ### css
 
