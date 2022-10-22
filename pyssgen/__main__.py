@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import os
+import os.path
+from os import path
 import sys
 from jinja2 import Environment, FileSystemLoader
 import frontmatter
@@ -108,6 +110,10 @@ def copy_static():
         return: 0 if success
     '''
     os.makedirs(f"{DIST_FOLDER}/static", exist_ok=True)
+
+    if not path.exists("static/"):
+        os.makedirs("static", exist_ok=True)
+
     for file in os.listdir("static"):
         with open(f"static/{file}", "r") as f:
             with open(f"{DIST_FOLDER}/static/{file}", "w") as f2:
