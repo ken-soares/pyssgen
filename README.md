@@ -11,7 +11,9 @@ websites.
 
 ### via pip
 
-`pip install --user pyssgen`
+```python
+>>> pip install --user pyssgen
+```
 
 ### via git
 
@@ -25,8 +27,9 @@ chmod +x pyssgen/pyssgen/pyssgen.py
 ## Usage
 
 ### if installed with pip
-`python3 -m pyssgen <input-dir> <output-dir> (optional: <templates-dir>)`
-
+```
+>>> python3 -m pyssgen <input-dir> <output-dir> (optional: <templates-dir>)
+```
 ### if installed with git
 
 ```bash
