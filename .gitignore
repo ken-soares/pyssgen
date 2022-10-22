@@ -2,6 +2,7 @@ __pycache__/
 /.venv/
 /venv/
 /build/
-/dist/
 /data/
 *.egg-info/
+
+pyssgen/dist/
