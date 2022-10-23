@@ -62,6 +62,9 @@ def dl_templates(TEMPLATE_FOLDER):
         return: 0 on success
     '''
 
+    if not path.exists(TEMPLATE_FOLDER):
+        os.makedirs(TEMPLATE_FOLDER, exist_ok=True)
+
     url_list = ["base", "home", "post"]
     for link in url_list:
         url = f"https://raw.githubusercontent.com/ken-soares/pyssgen/main/pyssgen/templates/{link}.html"
@@ -128,8 +131,10 @@ def copy_static():
         params: none
         return: 0 if success
     '''
-    os.makedirs(f"{DIST_FOLDER}/static", exist_ok=True)
+    if not path.exists("static/"):
+        os.makedirs("static", exist_ok=True)
 
+    os.makedirs(f"{DIST_FOLDER}/static", exist_ok=True)
 
     for file in os.listdir("static"):
         with open(f"static/{file}", "r") as f:
@@ -142,9 +147,6 @@ def copy_static():
 
 if __name__ == "__main__":
 
-    if not path.exists("static/"):
-        os.makedirs("static", exist_ok=True)
-
     if not checkargs():
         exit(1)
 
@@ -154,7 +156,7 @@ if __name__ == "__main__":
 
     env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDER))
 
-    # render shit
+    # render everything
     render_templates(posts_data,env)
     render_posts(posts_data,env)
     copy_static()
