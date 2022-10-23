@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import requests
 import os.path
 from os import path
 import sys
@@ -9,6 +10,9 @@ import frontmatter
 import markdown
 from slugify import slugify
 
+# TODO: get templates from github if templates/ folder doesn't exist.
+# TODO: update README.md
+# TODO: check update on pypi
 
 def checkargs():
     '''
@@ -37,8 +41,9 @@ def checkargs():
     else:
         INPUT_FOLDER = sys.argv[1]
         DIST_FOLDER = sys.argv[2]
-        print("no templates/ folder specified, defaulting to ./templates")
+        print("no templates folder specified, downloading defaults.")
         TEMPLATE_FOLDER = "./templates"
+        dl_templates(TEMPLATE_FOLDER)
     return True
 
 def load_input():
@@ -49,6 +54,20 @@ def load_input():
     '''
     posts = [f for f in os.listdir(INPUT_FOLDER)]
     return posts
+
+def dl_templates(TEMPLATE_FOLDER):
+    '''
+        downloads sample templates from github
+        params: templates folder: str
+        return: 0 on success
+    '''
+
+    url_list = ["base", "home", "post"]
+    for link in url_list:
+        url = f"https://raw.githubusercontent.com/ken-soares/pyssgen/main/pyssgen/templates/{link}.html"
+        r = requests.get(url, allow_redirects=True)
+        open(f"{TEMPLATE_FOLDER}/{link}.html").write(str(r.content))
+    return 0
 
 def process_posts(posts):
     '''
@@ -111,8 +130,6 @@ def copy_static():
     '''
     os.makedirs(f"{DIST_FOLDER}/static", exist_ok=True)
 
-    if not path.exists("static/"):
-        os.makedirs("static", exist_ok=True)
 
     for file in os.listdir("static"):
         with open(f"static/{file}", "r") as f:
@@ -124,11 +141,20 @@ def copy_static():
 
 
 if __name__ == "__main__":
+
+    if not path.exists("static/"):
+        os.makedirs("static", exist_ok=True)
+
     if not checkargs():
         exit(1)
+
+    # get data
     posts = load_input()
     posts_data = process_posts(posts)
+
     env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDER))
+
+    # render shit
     render_templates(posts_data,env)
     render_posts(posts_data,env)
     copy_static()
