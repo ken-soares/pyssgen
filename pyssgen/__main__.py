@@ -27,7 +27,7 @@ def checkargs():
         print("█▀▀█ █░░█ █▀▀ █▀▀ █▀▀▀ █▀▀ █▀▀▄")
         print("█░░█ █▄▄█ ▀▀█ ▀▀█ █░▀█ █▀▀ █░░█")
         print("█▀▀▀ ▄▄▄█ ▀▀▀ ▀▀▀ ▀▀▀▀ ▀▀▀ ▀░░▀\n")
-        print("Python Static Site Generator by Kenneth Soares")
+        print("pyssgen ver 1.1.0 - Kenneth Soares")
         print("usage: ./main.py <IN_DIR> <OUT_DIR> (<TEMP_DIR>)")
         return False
     elif len(sys.argv) < 3:

@@ -11,30 +11,23 @@ websites.
 
 ## Installation
 
-### via pip (recommended)
-
 ```python
 >>> pip install --user pyssgen
 ```
 
-
 ## Usage
 
-### if installed with pip
-
 ```python
->>> python3 -m pyssgen <input-dir> <output-dir> <templates-dir>
+>>> python3 -m pyssgen <input-dir> <output-dir> (optional: <templates-dir>)
 ```
 
-## templates
+## customizing
 
-In order for pyssgen to work you need to provide a `templates/` directory containing:
-* [base.html](https://github.com/ken-soares/pyssgen/blob/main/pyssgen/templates/base.html) the shared headers between all pages,
-* [home.html](https://github.com/ken-soares/pyssgen/blob/main/pyssgen/templates/home.html) for the main page of the website,
-* [post.html](https://github.com/ken-soares/pyssgen/blob/main/pyssgen/templates/post.html) for "posts" or any other pages
+You can make your own templates and css by adding the following files to your
+custom templates folder:
+* `base.html` common to all files
+* `home.html` main page template
+* `posts.html` other pages templates
 
-If you don't know how to write templates using jinja,
-you can copy the premade [templates](https://github.com/ken-soares/pyssgen/tree/main/pyssgen/templates) folder.
+and adding a `styles.css` to `static/` directory.
 
-## css
-`static/` folder will be created automatically in parent directory if it doesn't already exist, you can place your `styles.css` inside `dist/static`. Otherwise, the pages won't have styling. If you are not sure how to work with css, you can copy the css from this repository.
