@@ -69,7 +69,7 @@ def dl_templates(TEMPLATE_FOLDER):
     for link in url_list:
         url = f"https://raw.githubusercontent.com/ken-soares/pyssgen/main/pyssgen/templates/{link}.html"
         r = requests.get(url, allow_redirects=True)
-        open(f"{TEMPLATE_FOLDER}/{link}.html").write(str(r.content))
+        open(f"{TEMPLATE_FOLDER}/{link}.html", "wb").write(r.content)
     return 0
 
 def process_posts(posts):
