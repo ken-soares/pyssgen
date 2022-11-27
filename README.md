@@ -1,8 +1,9 @@
 # pyssgen
 
+
 [![PyPI version](https://badge.fury.io/py/pyssgen.svg)](https://badge.fury.io/py/pyssgen)
 
-pyssgen is a lightweight alternative to hugo and other static site generators.
+pyssgen (pronounced "pie-es-es-gen") is a lightweight alternative to hugo and other static site generators.
 I used it to build my static blog and included the templates and css that I use along with it.
 
 Please note that it's only a side project and might not be suitable for bigger
